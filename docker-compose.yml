@@ -1,1 +1,19 @@
-# Your Solution
+version: "3"
+services:
+  book_catalog:
+    build:
+      context: ./book_catalog # Uses the Dockerfile in book_catalog directory
+    container_name: book_catalog
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://s222611966_sit722_part3_user:kTdz67XTqrx6wwpBwa1XpYrg95iAwr79@dpg-crmr4s88fa8c73ani740-a.oregon-postgres.render.com/s222611966_sit722_part3
+
+  inventory_management:
+    build:
+      context: ./inventory_management # Uses the Dockerfile in inventory_management directory
+    container_name: inventory_management
+    ports:
+      - "8002:8000"
+    environment:
+      - DATABASE_URL=postgresql://s222611966_sit722_part3_user:kTdz67XTqrx6wwpBwa1XpYrg95iAwr79@dpg-crmr4s88fa8c73ani740-a.oregon-postgres.render.com/s222611966_sit722_part3
